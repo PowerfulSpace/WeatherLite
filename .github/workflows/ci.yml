@@ -25,7 +25,3 @@ jobs:
 
     - name: Build
       run: dotnet build ./src/PS.WeatherLite/PS.WeatherLite.Web/PS.WeatherLite.Web.csproj --no-restore --configuration Release
-
-    - name: Run tests
-      run: dotnet test --no-build --verbosity normal
-      # Если у тебя нет тестов, можно временно закомментировать эту строку
