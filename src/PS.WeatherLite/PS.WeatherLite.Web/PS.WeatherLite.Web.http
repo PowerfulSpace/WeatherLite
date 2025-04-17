@@ -1,0 +1,6 @@
+@PS.WeatherLite.Web_HostAddress = http://localhost:5244
+
+GET {{PS.WeatherLite.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

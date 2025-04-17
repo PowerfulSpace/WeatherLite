@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{FCAE90AA-18E3-4EF5-9E4A-BBF0FA0FAC55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.WeatherLite.Web", "PS.WeatherLite.Web\PS.WeatherLite.Web.csproj", "{9C511683-E6A9-4851-B2CF-9AEC3D292E8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C511683-E6A9-4851-B2CF-9AEC3D292E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C511683-E6A9-4851-B2CF-9AEC3D292E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C511683-E6A9-4851-B2CF-9AEC3D292E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C511683-E6A9-4851-B2CF-9AEC3D292E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9C511683-E6A9-4851-B2CF-9AEC3D292E8A} = {FCAE90AA-18E3-4EF5-9E4A-BBF0FA0FAC55}
+	EndGlobalSection
+EndGlobal
