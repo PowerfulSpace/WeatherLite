@@ -1,31 +1,31 @@
-name: CI
+name: Build and Test ASP.NET Core API
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+
+    runs-on: windows-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '9.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore D:\Repositories\GitHub\WeatherLite\src\PS.WeatherLite\PS.WeatherLite.Web
+      run: dotnet restore ./src/PS.WeatherLite/PS.WeatherLite.Web/PS.WeatherLite.Web.csproj
 
-    - name: Build solution
-      run: dotnet build D:\Repositories\GitHub\WeatherLite\src\PS.WeatherLite\PS.WeatherLite.Web --no-restore --configuration Release
+    - name: Build
+      run: dotnet build ./src/PS.WeatherLite/PS.WeatherLite.Web/PS.WeatherLite.Web.csproj --no-restore --configuration Release
 
     - name: Run tests
-      run: dotnet test D:\Repositories\GitHub\WeatherLite\src\PS.WeatherLite\PS.WeatherLite.Web --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal
+      # Если у тебя нет тестов, можно временно закомментировать эту строку
