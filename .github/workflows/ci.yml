@@ -22,10 +22,10 @@ jobs:
         dotnet-version: '9.0'
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore D:\Repositories\GitHub\WeatherLite\src\PS.WeatherLite\PS.WeatherLite.Web
 
     - name: Build solution
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet build D:\Repositories\GitHub\WeatherLite\src\PS.WeatherLite\PS.WeatherLite.Web --no-restore --configuration Release
 
     - name: Run tests
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test D:\Repositories\GitHub\WeatherLite\src\PS.WeatherLite\PS.WeatherLite.Web --no-build --verbosity normal
