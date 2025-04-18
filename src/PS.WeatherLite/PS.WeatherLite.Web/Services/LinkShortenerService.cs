@@ -1,4 +1,6 @@
-﻿using PS.WeatherLite.Web.Services.Interfaces;
+﻿using Microsoft.Extensions.Options;
+using PS.WeatherLite.Web.Models;
+using PS.WeatherLite.Web.Services.Interfaces;
 using PS.WeatherLite.Web.Storage.Interfaces;
 
 namespace PS.WeatherLite.Web.Services
@@ -6,11 +8,12 @@ namespace PS.WeatherLite.Web.Services
     public class LinkShortenerService : ILinkShortenerService
     {
         private readonly ILinkStorage _storage;
-        const string BaseUrl = "https://localhost:8081/";
+        private readonly string _baseUrl;
 
-        public LinkShortenerService(ILinkStorage storage)
+        public LinkShortenerService(ILinkStorage storage, IOptions<ShortenerSettings> options)
         {
             _storage = storage;
+            _baseUrl = options.Value.BaseUrl;
         }
 
         public string Shorten(string longUrl)
@@ -21,7 +24,7 @@ namespace PS.WeatherLite.Web.Services
             do
             {
                 code = GenerateShortCode();
-                shortLink = $"{BaseUrl}{code}";
+                shortLink = $"{_baseUrl}{code}";
             }
             while (_storage.TryGet(shortLink, out _));
 
