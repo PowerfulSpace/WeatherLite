@@ -6,19 +6,22 @@ WORKDIR /app
 COPY *.csproj ./
 RUN dotnet restore
 
-# Копируем всё остальное и билдим
+# Копируем остальной код и билдим
 COPY . ./
-RUN dotnet publish -c Release -o out
+RUN dotnet publish -c Release -o /out
 
 # Stage 2: Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
 
-# Копируем собранное приложение
-COPY --from=build /app/out ./
+# Устанавливаем переменную окружения
+ENV ASPNETCORE_ENVIRONMENT=Docker
 
-# Указываем порт
+# Копируем билд
+COPY --from=build /out ./
+
+# Открываем порт (внутренний)
 EXPOSE 8080
 
-# Команда запуска
+# Точка входа
 ENTRYPOINT ["dotnet", "PS.WeatherLite.Web.dll"]

@@ -13,7 +13,7 @@ namespace PS.WeatherLite.Web.Services
         public LinkShortenerService(ILinkStorage storage, IOptions<ShortenerSettings> options)
         {
             _storage = storage;
-            _baseUrl = options.Value.BaseUrl;
+            _baseUrl = options.Value.BaseUrl.TrimEnd('/');
         }
 
         public string Shorten(string longUrl)
@@ -24,7 +24,8 @@ namespace PS.WeatherLite.Web.Services
             do
             {
                 code = GenerateShortCode();
-                shortLink = $"{_baseUrl}{code}";
+                //shortLink = $"{_baseUrl}{code}";
+                shortLink = $"{_baseUrl}/r/{code}";
             }
             while (_storage.TryGet(shortLink, out _));
 

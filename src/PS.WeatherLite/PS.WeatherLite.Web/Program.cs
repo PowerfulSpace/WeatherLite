@@ -18,7 +18,6 @@ builder.Services.AddSingleton<ILinkStorage>(new RedisLinkStorage(redisConnection
 
 // Регистрация сервиса сокращения ссылок
 builder.Services.AddSingleton<ILinkShortenerService, LinkShortenerService>();
-builder.Services.AddSingleton<ILinkStorage, RedisLinkStorage>();
 
 
 builder.Services.AddControllers();
